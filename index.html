@@ -4,10 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="style.css" rel="styelsheet">
+    <link href="style.css" rel="stylesheet">
     <script src="java.js" defer></script>
 </head>
 <body>
+    <div class="book-container"></div>
+    <div class="new-book">
+        <button class="new">New Book</button>
+    </div>
+    <div class="form">
+        <form action="#" method="get">
+        <fieldset>
+            
+            <label for="book">Book Title</label>
+            <input type="text" id="book" name="book" required>            
+            
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" required>
+
+
+
+            <label for="pages">Pages</label>
+            <input type="text" id="pages" name="pages" required>
+
+            
+            <p>Have You Read it?</p>
+            <div>
+                <input type="radio" id="true" name="read" value="true" required>
+                <label for="true">Yes</label>
+            </div>
+            <div>
+                <input type="radio" id="false" name="read" value="false" >
+                <label for="false">No</label>
+            </div>
+
+        </fieldset>
+        
+        <button type="submit">Add Book</button>
+        
+        </form>
+    </div>
     
 </body>
 </html>
