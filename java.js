@@ -52,9 +52,7 @@ form.addEventListener('submit', (event)=>{
   
   addBookToLibrary(newBook);
 
-  while (container.firstChild) {
-  container.removeChild(container.firstChild);
-  } 
+  container.innerHTML = ""; 
 
   displayLibrary();
 
@@ -66,13 +64,44 @@ form.addEventListener('submit', (event)=>{
 function displayLibrary(){
   for (let i = 0; i < myLibrary.length; i++){
     let div = document.createElement("div");
-    div.classList.add(`div-${i}`)
+    div.classList.add("bookList")
+    div.classList.add(myLibrary[i].id)
     container.appendChild(div);
     let para = document.createElement("p");
     para.textContent = myLibrary[i].info();
     div.appendChild(para);
+    let removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.classList.add("Remove");
+    div.appendChild(removeButton);
+    const toggleRead = document.createElement("button");
+    toggleRead.classList.add("Toggle");
+    toggleRead.textContent = "Toggle Read";
+    div.appendChild(toggleRead);
+
+    removeButton.addEventListener("click", () => {
+    myLibrary.splice(i, 1);
+
+    container.innerHTML = ""; 
+    displayLibrary();
+  });
+
+    toggleRead.addEventListener("click", () => {
+    if(myLibrary[i].read == true){
+      myLibrary[i].read = false;
+    }
+    else{
+      myLibrary[i].read = true;
+    };
+
+    container.innerHTML = ""; 
+    displayLibrary();
+  });
   }
 }
+
+
+
 
   const book1 = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
   const book2 = new Book("The Inner Game Of Tennis", "W. Timothy Gallwey", 122, true);

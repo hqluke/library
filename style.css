@@ -1,3 +1,14 @@
 div.form{
     display: none;
 }
+
+.book-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.bookList{
+    display: flex;
+    gap: 2rem;
+}
